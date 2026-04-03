@@ -1,0 +1,330 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "endereco",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "valor",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "motivo",
+						"type": "string"
+					}
+				],
+				"name": "RecompensaEnviada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "endereco",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nome",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dataRegistro",
+						"type": "uint256"
+					}
+				],
+				"name": "UsuarioRegistrado",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "RECOMPENSA_POR_USUARIO",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "carteira",
+						"type": "address"
+					}
+				],
+				"name": "consultarUsuario",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "nome",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dataRegistro",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "ativo",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "saldoToken",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "desativarConta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "carteira",
+						"type": "address"
+					}
+				],
+				"name": "recompensarUsuario",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "nome",
+						"type": "string"
+					}
+				],
+				"name": "registrarUsuario",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "saldosTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalUsuarios",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "usuarios",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "nome",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dataRegistro",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "ativo",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "carteira",
+						"type": "address"
+					}
+				],
+				"name": "verificarRegistro",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Contrato inteligente para registro de usuários e distribuição de recompensas em tokens simulados  CONCEITOS EXPLICATIVOS:  1. O QUE É GAS?    - Gas é a unidade que mede o esforço computacional necessário para executar operações na Ethereum    - Cada operação consome uma quantidade específica de gas (ex: adicionar números = 3 gas, armazenar dados = 20.000 gas)    - Os usuários pagam gas em ETH para executar transações no contrato    - Sem gas suficiente, a transação falha e o gas já consumido não é reembolsado  2. COMO FUNCIONA A EVM (Ethereum Virtual Machine)?    - A EVM é o ambiente de execução descentralizado onde todos os smart contracts rodam    - É uma máquina de estados que processa transações e atualiza o estado global da blockchain    - Cada nó na rede executa as mesmas instruções para chegar ao mesmo resultado (consenso)    - O código Solidity é compilado para bytecode que a EVM pode interpretar  3. DIFERENÇA PARA CONTRATOS TRADICIONAIS:    - Contratos tradicionais: executados em servidores centralizados, podem ser alterados pelo administrador    - Smart Contracts: executados na blockchain, imutáveis após deploy, execução automática quando condições são atendidas    - Contratos tradicionais: confiança nas partes envolvidas    - Smart Contracts: confiança no código e na rede descentralizada",
+			"events": {
+				"RecompensaEnviada(address,uint256,string)": {
+					"details": "Evento emitido quando uma recompensa é enviada",
+					"params": {
+						"endereco": "Endereço da carteira que recebeu",
+						"motivo": "Motivo da recompensa",
+						"valor": "Quantidade de tokens recompensados"
+					}
+				},
+				"UsuarioRegistrado(address,string,uint256)": {
+					"details": "Evento emitido quando um novo usuário é registrado",
+					"params": {
+						"dataRegistro": "Data do registro",
+						"endereco": "Endereço da carteira do usuário",
+						"nome": "Nome do usuário"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"consultarUsuario(address)": {
+					"details": "Consulta informações de um usuário pelo endereço da carteira",
+					"params": {
+						"carteira": "Endereço da carteira a consultar"
+					},
+					"returns": {
+						"ativo": "Status de atividade",
+						"dataRegistro": "Data do registro",
+						"nome": "Nome do usuário",
+						"saldoToken": "Saldo de tokens do usuário"
+					}
+				},
+				"desativarConta()": {
+					"details": "Permite que um usuário desative sua conta"
+				},
+				"recompensarUsuario(address)": {
+					"details": "Distribui recompensa de tokens para um usuário",
+					"params": {
+						"carteira": "Endereço da carteira que receberá a recompensa  SEGURANÇA: - require() verifica se o usuário está registrado - Impede recompensas para usuários inativos - Valida que o endereço não é zero"
+					}
+				},
+				"registrarUsuario(string)": {
+					"details": "Registra um novo usuário no sistema",
+					"params": {
+						"nome": "Nome do usuário a ser registrado  SEGURANÇA: - require() verifica se o usuário já existe (evita duplicação) - Verifica se o nome não está vazio - Apenas endereços válidos podem registrar  GAS: Esta função consome mais gas pois armazena dados na blockchain"
+					}
+				},
+				"verificarRegistro(address)": {
+					"details": "Verifica se um endereço específico está registrado",
+					"params": {
+						"carteira": "Endereço a verificar"
+					},
+					"returns": {
+						"_0": "true se registrado, false caso contrário"
+					}
+				}
+			},
+			"stateVariables": {
+				"RECOMPENSA_POR_USUARIO": {
+					"details": "Valor fixo de recompensa por usuário (em tokens simulados)"
+				},
+				"saldosTokens": {
+					"details": "Mapping para simular tokens (conceito ERC-20)      Key: endereço da carteira      Value: saldo de tokens simulados"
+				},
+				"totalUsuarios": {
+					"details": "Contador total de usuários registrados"
+				},
+				"usuarioRegistrado": {
+					"details": "Mapping para rastrear se um usuário já foi registrado      Evita registros duplicados (segurança)"
+				},
+				"usuarios": {
+					"details": "Mapping para armazenar informações dos usuários      Key: endereço da carteira do usuário      Value: struct Usuario com os dados cadastrais"
+				}
+			},
+			"title": "RegistroDeUsuariosComRecompensa",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"derek_santos_smartcontract.sol": "RegistroDeUsuariosComRecompensa"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"derek_santos_smartcontract.sol": {
+			"keccak256": "0x5b54c785bfc3253f59e9440a52a55ee7532c060d26ba2a1fcd7e263b45bc8510",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e3c54ab0826c1809aaad252a2bc3ea1c43e35ccc226bc6a7377e08ef559ef279",
+				"dweb:/ipfs/QmUM6NCyoQ9wXHjq7NNbMDibASGWf19GxxhKj7uZbXkKov"
+			]
+		}
+	},
+	"version": 1
+}
