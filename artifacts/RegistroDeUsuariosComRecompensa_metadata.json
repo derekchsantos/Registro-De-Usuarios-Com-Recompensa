@@ -303,7 +303,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			".git/derek_santos_smartcontract.sol": "RegistroDeUsuariosComRecompensa"
+			"derek_santos_smartcontract.sol": "RegistroDeUsuariosComRecompensa"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -317,7 +317,7 @@
 		"remappings": []
 	},
 	"sources": {
-		".git/derek_santos_smartcontract.sol": {
+		"derek_santos_smartcontract.sol": {
 			"keccak256": "0x5b54c785bfc3253f59e9440a52a55ee7532c060d26ba2a1fcd7e263b45bc8510",
 			"license": "MIT",
 			"urls": [
