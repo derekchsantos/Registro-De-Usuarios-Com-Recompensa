@@ -1,2 +1,2 @@
-# Registro-De-Usuarios-Com-Recompensa
+# Registro De Usuarios Com Recompensa
 Projeto Final: Desenvolvimento de Smart Contract Básico com Registro e Recompensa
