@@ -4,7 +4,7 @@ pragma solidity ^0.8;
 /**
  * @title RegistroDeUsuariosComRecompensa
  * @dev Contrato inteligente para registro de usuários e distribuição de recompensas em tokens simulados
- * 
+ * //@author Derek Christopher
  * CONCEITOS EXPLICATIVOS:
  * 
  * 1. O QUE É GAS?
